@@ -20,22 +20,24 @@ const makeRequestSepolia = async () => {
     "https://01.functions-gateway.testnet.chain.link/",
     "https://02.functions-gateway.testnet.chain.link/",
   ];
-
   // Initialize functions settings
   const source = fs
     .readFileSync(path.resolve(__dirname, "DON_script.js"))
     .toString();
 
-  const args = [];
-  const secrets = { encryptionKey: process.env.ENCRYPTION_KEY };
+  const args = [
+    "dheeraj0/hello-world-node:amd64-latest",
+    "0xd1a6767FAA0dED1d0aF004e966d3253863db7820",
+  ];
+  const secrets = { staticUrl: process.env.STATIC_URL };
   const slotIdNumber = 0; // slot ID where to upload the secrets
-  const expirationTimeMinutes = 15; // expiration time in minutes of the secrets
+  const expirationTimeMinutes = 2880; // expiration time in minutes of the secrets
   const gasLimit = 300000;
 
   // Initialize ethers signer and provider to interact with the contracts onchain
-  const privateKey = process.env.PRIVATE_KEY; // fetch PRIVATE_KEY
-  console.log('privateKey: ', privateKey);
-  if (!privateKey)
+  const staticUrl = process.env.STATIC_URL; // fetch PRIVATE_KEY
+  console.log("STATIC_URL: ", staticUrl);
+  if (!staticUrl)
     throw new Error(
       "private key not provided - check your environment variables"
     );
@@ -46,6 +48,7 @@ const makeRequestSepolia = async () => {
     throw new Error(`rpcUrl not provided  - check your environment variables`);
 
   const provider = new ethers.providers.JsonRpcProvider(rpcUrl);
+  const privateKey = process.env.PRIVATE_KEY;
 
   const wallet = new ethers.Wallet(privateKey);
   const signer = wallet.connect(provider); // create ethers signer for signing transactions
@@ -112,7 +115,7 @@ const makeRequestSepolia = async () => {
   );
 
   const donHostedSecretsVersion = parseInt(uploadResult.version); // fetch the reference of the encrypted secrets
-  console.log(`donHostedSecretsVersion: `,donHostedSecretsVersion)
+  console.log(`donHostedSecretsVersion: `, donHostedSecretsVersion);
 };
 
 makeRequestSepolia().catch((e) => {
