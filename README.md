@@ -1,4 +1,4 @@
-# ChainLink-DON-Secre
+# ChainLink-DON-Secrets
 
 This project utilizes Chainlink Decentralized Oracle Networks (DON) to securely manage sensitive data. A critical element of this security is the storage of the STATIC_URL within the DON network. By keeping the STATIC_URL—which serves as a backend server for decrypting IPFS data—securely within the DON, the project significantly mitigates the risk of network attacks. This approach ensures that the STATIC_URL remains hidden from potential attackers, maintaining the integrity and confidentiality of the decryption process.
 
