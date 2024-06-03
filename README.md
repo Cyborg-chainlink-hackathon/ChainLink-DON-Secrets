@@ -2,6 +2,7 @@
 
 This project utilizes Chainlink Decentralized Oracle Networks (DON) to securely manage sensitive data. A critical element of this security is the storage of the STATIC_URL within the DON network. By keeping the STATIC_URL—which serves as a backend server for decrypting IPFS data—securely within the DON, the project significantly mitigates the risk of network attacks. This approach ensures that the STATIC_URL remains hidden from potential attackers, maintaining the integrity and confidentiality of the decryption process.
 
+Furthermore, the project leverages both the IPFS gateway and Sepolia testnet gateway of QuickNode to enhance robust security and reliability in data handling. These gateways ensure efficient and secure storage and retrieval of data, reinforcing the overall security architecture of the project.
 
 ## Installation
 
