@@ -23,7 +23,7 @@ To set up the project locally, follow these steps:
 ## Usage
 - Store the secrets in DON network:
     ```
-    node StoreSecrets.js
+    node src/StoreSecrets.js
     ```
     
 ## Functionalities:
