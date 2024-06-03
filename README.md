@@ -32,7 +32,9 @@ To set up the project locally, follow these steps:
 2. Simulates the execution of a Chainlink DON script to ensure it runs correctly.
 3. Encrypts and uploads secrets to the DON network.
 
+
 **DON_script.js**
+
 This is a Chain link function, which is executed by the DON network. This script integrates multiple services to securely handle encrypted data from IPFS, decrypt it, and use it to initiate a deployment on a worker node, all while ensuring error handling at each step.
 1. Check for Required Secrets: Ensures that the staticUrl is set in the secrets.
 2. Download from IPFS: Fetches encrypted data from IPFS.
